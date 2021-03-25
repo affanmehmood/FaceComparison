@@ -11,7 +11,9 @@ def face_compare():
         if len(encoding) > 0:
             known_encodings.append(encoding[0])
 
-    unknown_encoding = face_recognition.face_encodings(face_recognition.load_image_file(unknown_image_path))[0]
+    unknown_encoding = face_recognition.face_encodings(face_recognition.load_image_file(unknown_image_path))
+    if len(unknown_encoding) > 0:
+        unknown_encoding = unknown_encoding[0]
 
     if len(known_encodings) == 0:
         print("no faces in input images")
